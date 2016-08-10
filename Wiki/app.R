@@ -23,7 +23,7 @@ ui <- fluidPage(
 server <- function(input, output) {
         output$map <- renderLeaflet({
                 leaflet(data = wiki) %>%
-                        addTiles() %>%
+                        addProviderTiles("CartoDB.Positron") %>%
                         addCircleMarkers(popup = ~Organization, color = ~pal(Sector), 
                                          clusterOptions = markerClusterOptions())
         })
